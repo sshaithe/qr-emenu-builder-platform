@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.625rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Custom scrollbar hide utility */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Touch action manipulation for mobile */
+button, a {
+  touch-action: manipulation;
+}
+
+/* ── Global dark mode helpers for dashboard pages ── */
+/* These ensure pages that don't yet have explicit dark: classes still look good */
+.dark main,
+.dark [role="main"] {
+  color-scheme: dark;
+}
+
+/* Force all plain text in dark mode to be readable */
+.dark h1:not([class*="text-"]),
+.dark h2:not([class*="text-"]),
+.dark h3:not([class*="text-"]),
+.dark p:not([class*="text-"]),
+.dark span:not([class*="text-"]),
+.dark label:not([class*="text-"]),
+.dark td:not([class*="text-"]),
+.dark th:not([class*="text-"]) {
+  color: rgb(243 244 246); /* gray-100 */
+}
+
+/* Gray text classes in dark mode */
+.dark .text-gray-900 { color: rgb(243 244 246) !important; }
+.dark .text-gray-800 { color: rgb(229 231 235) !important; }
+.dark .text-gray-700 { color: rgb(209 213 219) !important; }
+.dark .text-gray-600 { color: rgb(156 163 175) !important; }
+.dark .text-gray-500 { color: rgb(107 114 128) !important; }
+
+/* Background classes in dark mode */
+.dark .bg-white { background-color: rgb(31 41 55) !important; }       /* gray-800 */
+.dark .bg-gray-50 { background-color: rgb(17 24 39) !important; }      /* gray-900 */
+.dark .bg-gray-100 { background-color: rgb(31 41 55) !important; }     /* gray-800 */
+.dark .bg-gray-200 { background-color: rgb(55 65 81) !important; }     /* gray-700 */
+
+/* Borders in dark mode */
+.dark .border-gray-100 { border-color: rgb(55 65 81) !important; }
+.dark .border-gray-200 { border-color: rgb(75 85 99) !important; }
+.dark .divide-gray-50 > * + * { border-color: rgb(55 65 81) !important; }
+.dark .divide-gray-100 > * + * { border-color: rgb(55 65 81) !important; }
+
+/* Status badges in dark mode */
+.dark .bg-yellow-100 { background-color: rgba(120, 53, 15, 0.4) !important; }
+.dark .text-yellow-800 { color: rgb(253 230 138) !important; }
+.dark .bg-blue-100 { background-color: rgba(30, 58, 138, 0.4) !important; }
+.dark .text-blue-800 { color: rgb(147 197 253) !important; }
+.dark .bg-orange-100 { background-color: rgba(124, 45, 18, 0.4) !important; }
+.dark .text-orange-800 { color: rgb(254 215 170) !important; }
+.dark .bg-green-100 { background-color: rgba(6, 78, 59, 0.4) !important; }
+.dark .text-green-800 { color: rgb(167 243 208) !important; }
+.dark .bg-red-100 { background-color: rgba(127, 29, 29, 0.4) !important; }
+.dark .text-red-800 { color: rgb(252 165 165) !important; }
+.dark .bg-purple-100 { background-color: rgba(76, 29, 149, 0.4) !important; }
+.dark .text-purple-800 { color: rgb(216 180 254) !important; }
+
+/* Hover states in dark mode */
+.dark .hover\:bg-gray-50:hover { background-color: rgb(31 41 55) !important; }
+.dark .hover\:bg-gray-100:hover { background-color: rgb(55 65 81) !important; }
+.dark .hover\:bg-gray-200:hover { background-color: rgb(75 85 99) !important; }

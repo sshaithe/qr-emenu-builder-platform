@@ -1,0 +1,17 @@
+Flask
+Flask-SQLAlchemy
+Flask-CORS
+Flask-Migrate
+Flask-Limiter
+PyJWT
+Werkzeug
+psycopg2-binary
+python-dotenv
+SQLAlchemy
+bcrypt
+qrcode
+Pillow
+uuid-utils
+bleach
+gunicorn
+locust
